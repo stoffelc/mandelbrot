@@ -49,7 +49,7 @@ import loci.formats.in.MetadataLevel;
  * </p>
  */
 
-@Plugin(type = Command.class, menuPath = "Plugins>BIOP>Dummy Command")
+@Plugin(type = Command.class, menuPath = "Plugins>BIOP>Mandelbrot")
 public class MandelBrotCommand implements Command {
 
     @Parameter
@@ -58,7 +58,8 @@ public class MandelBrotCommand implements Command {
     @Parameter
     PlatformService ps;
 
-
+    @Parameter
+    int nb_iter = 1000;
 
     @Override
     public void run() {
@@ -114,18 +115,17 @@ public class MandelBrotCommand implements Command {
         double py = l.getDoublePosition(1);
         double pz = l.getDoublePosition(2);
         Complex C = new Complex(px,py);
-        int max = 1000;
 
         double x = 0, y = 0;
         int iterations = 0;
-        while ((x*x+y*y < 4) && (iterations < max)) {
+        while ((x*x+y*y < 4) && (iterations < nb_iter)) {
             double x1 = x*x-y*y+C.getReal();
             y = 2*x*y+C.getImaginary();
             x = x1;
             iterations++;
         }
 
-        t.set((int) f(iterations,max));
+        t.set((int) f(iterations,nb_iter));
       //  t.set((int) ((int) px*px - py*py + C.getReal()));
     }
 

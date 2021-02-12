@@ -1,1 +1,1 @@
-{"class":"ch.epfl.biop.ij2command.MandelBrotCommand","values":{"menuPath":"Plugins>BIOP>Dummy Command","type":"org.scijava.command.Command"}}
+{"class":"ch.epfl.biop.ij2command.Tiling","values":{"menuPath":"Plugins>BIOP>Tiling","type":"org.scijava.command.Command"}}{"class":"ch.epfl.biop.ij2command.MandelBrotCommand","values":{"menuPath":"Plugins>BIOP>Mandelbrot","type":"org.scijava.command.Command"}}
