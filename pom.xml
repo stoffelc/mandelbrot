@@ -183,19 +183,13 @@
 		<dependency>
 			<groupId>ome</groupId>
 			<artifactId>formats-gpl</artifactId>
-			<version>6.3.0</version>
+			<!--<version>6.3.0</version> -->
 		</dependency>
 		<dependency>
 			<groupId>sc.fiji</groupId>
 			<artifactId>bigdataviewer-vistools</artifactId>
-			<version>1.0.0-beta-4</version>
+			<!--<version>1.0.0-beta-4</version> -->
 		</dependency>
-		<dependency>
-			<groupId>com.jtransc</groupId>
-			<artifactId>jtransc-rt</artifactId>
-			<version>0.6.8</version>
-		</dependency>
-
 	</dependencies>
 
 </project>

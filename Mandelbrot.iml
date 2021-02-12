@@ -33,8 +33,6 @@
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: io.scif:scifio:0.41.0" level="project" />
     <orderEntry type="library" name="Maven: io.scif:scifio-jai-imageio:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: net.imglib2:imglib2-cache:1.0.0-beta-13" level="project" />
-    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.scijava:scijava-common:2.83.3" level="project" />
     <orderEntry type="library" name="Maven: org.bushe:eventbus:1.4" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.imagej:imagej-mesh-io:0.1.2" level="project" />
@@ -232,7 +230,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.zeroc:icegrid:3.6.5" level="project" />
     <orderEntry type="library" name="Maven: com.zeroc:ice:3.6.5" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.zeroc:glacier2:3.6.5" level="project" />
-    <orderEntry type="library" name="Maven: ome:formats-gpl:6.3.0" level="project" />
+    <orderEntry type="library" name="Maven: ome:formats-gpl:6.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.openmicroscopy:ome-common:6.0.4" level="project" />
     <orderEntry type="library" name="Maven: io.minio:minio:5.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.http-client:google-http-client-xml:1.20.0" level="project" />
@@ -251,12 +249,12 @@
     <orderEntry type="library" name="Maven: org.perf4j:perf4j:0.9.16" level="project" />
     <orderEntry type="library" name="Maven: com.drewnoakes:metadata-extractor:2.11.0" level="project" />
     <orderEntry type="library" name="Maven: com.adobe.xmp:xmpcore:5.1.3" level="project" />
+    <orderEntry type="library" name="Maven: ome:jxrlib-all:0.2.4" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: ome:formats-api:6.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.openmicroscopy:ome-mdbtools:5.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.openmicroscopy:metakit:5.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.openmicroscopy:ome-poi:5.3.3" level="project" />
-    <orderEntry type="library" name="Maven: ome:jxrlib-all:0.2.4" level="project" />
     <orderEntry type="library" name="Maven: edu.ucar:cdm:4.6.13" level="project" />
     <orderEntry type="library" name="Maven: edu.ucar:httpservices:4.6.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.5.1" level="project" />
@@ -274,14 +272,11 @@
     <orderEntry type="library" name="Maven: cisd:jhdf5:14.12.6" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.7" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
-    <orderEntry type="library" name="Maven: sc.fiji:bigdataviewer-vistools:1.0.0-beta-4" level="project" />
+    <orderEntry type="library" name="Maven: sc.fiji:bigdataviewer-vistools:1.0.0-beta-20" level="project" />
     <orderEntry type="library" name="Maven: sc.fiji:bigdataviewer-core:9.0.6" level="project" />
-    <orderEntry type="library" name="Maven: net.imglib2:imglib2-ui:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: sc.fiji:spim_data:2.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
-    <orderEntry type="library" name="Maven: org.scijava:ui-behaviour:2.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.26" level="project" />
     <orderEntry type="library" name="Maven: org.scijava:scijava-listeners:1.0.0-beta-3" level="project" />
     <orderEntry type="library" name="Maven: org.janelia.saalfeldlab:n5-imglib2:3.5.1" level="project" />
     <orderEntry type="library" name="Maven: net.imglib2:imglib2-label-multisets:0.9.0" level="project" />
@@ -289,8 +284,10 @@
     <orderEntry type="library" name="Maven: org.tukaani:xz:1.8" level="project" />
     <orderEntry type="library" name="Maven: org.lz4:lz4-java:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.20" level="project" />
-    <orderEntry type="library" name="Maven: com.jtransc:jtransc-rt:0.6.8" level="project" />
-    <orderEntry type="library" name="Maven: com.jtransc:jtransc-rt-core:0.6.8" level="project" />
-    <orderEntry type="library" name="Maven: com.jtransc:jtransc-annotations:0.6.8" level="project" />
+    <orderEntry type="library" name="Maven: net.imglib2:imglib2-cache:1.0.0-beta-13" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: net.imglib2:imglib2-ui:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scijava:ui-behaviour:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.26" level="project" />
   </component>
 </module>
