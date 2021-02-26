@@ -1,11 +1,14 @@
 package ch.epfl.biop.ij2command;
 
 import bdv.util.BdvFunctions;
+import bdv.util.BdvStackSource;
 import ij.IJ;
 import ij.ImagePlus;
+import ij.ImageStack;
 import ij.process.ImageProcessor;
 import net.imagej.ImageJ;
 import net.imglib2.Cursor;
+import net.imglib2.FinalInterval;
 import net.imglib2.RandomAccessible;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.cache.img.CellLoader;
@@ -31,55 +34,70 @@ public class Tiling implements Command {
     @Parameter
     ImagePlus image;
 
-    int index = 0;
+    int index = 1;
 
     @Override
     public void run() {
-        ImageProcessor ip = image.getStack().getProcessor(1);
-        image.getHeight();
-        image.getWidth();
-        image.getNSlices();
-
         // Run the function
-        // Creates cached image factory of Type Byte
+        //ImageStack ipstack = image.getStack();
+        // Read image dimensions and set total dimensions of the tiled image accordingly
+        long[] total_dim = new long[2];
+        total_dim[0] = image.getWidth()*image.getNSlices();
+        total_dim[1] = image.getHeight();
+
+        // Create cached image factory of Type Byte
         ReadOnlyCachedCellImgOptions options = new ReadOnlyCachedCellImgOptions();
-        options = options.cellDimensions(25,10);
+        // Put cell dimensions to image width and height
+        options = options.cellDimensions(image.getWidth(),image.getHeight());
         final ReadOnlyCachedCellImgFactory factory = new ReadOnlyCachedCellImgFactory(options);
-        long[] dim = new long[2];
-        dim[0] = 1024;
-        dim[1] = 1024;
+
         UnsignedShortType t = new UnsignedShortType();
+
         CellLoader<UnsignedShortType> loader = new CellLoader<UnsignedShortType>(){
             @Override
             public void load(SingleCellArrayImg<UnsignedShortType, ?> singleCellArrayImg) throws Exception {
-                index = index+10;
-                int index1 = index;
-                int[] positions = new int[2];
 
+                ImageProcessor ip = image.getStack().getProcessor(index);
+
+                int[] positions = new int[2];
                 Cursor<UnsignedShortType> cursor = singleCellArrayImg.localizingCursor();
+
+                final int cellOffset = - (index-1)*image.getWidth();
+
+
+                // move through pixels until there is no pixel left in this cell
                 while (cursor.hasNext())
                 {
-                    // move both cursors forward by one pixel
+                    // move the cursor forward by one pixel
                     cursor.fwd();
+                    //get the current position
                     cursor.localize(positions);
-                    int px = positions[0];
+                    int px = positions[0] + cellOffset;
                     int py = positions[1];
-                    // set the value of this pixel of the output image to the same as the input,
-                    // every Type supports T.set( T type )
-                    //cursor.get().set(px*py);
+                    //get pixel value of the input image (from stack) at pos (px,py) and copy it to the current cell at the same position
                     cursor.get().set(ip.getPixel(px,py));
                 }
-                /*singleCellArrayImg.forEach(new Consumer<UnsignedShortType>() {
+                /*
+                singleCellArrayImg.forEach(new Consumer<UnsignedShortType>() {
                     @Override
                     public void accept(UnsignedShortType unsignedShortType) {
-                        //unsignedShortType.set((int) (Math.random()*255));
-                        unsignedShortType.set(px*py);
+                        // move the cursor forward by one pixel
+                        cursor.fwd();
+                        //get the current position
+                        cursor.localize(positions);
+                        int px = positions[0] - (index-1)*image.getWidth();
+                        int py = positions[1];
+                        //get pixel value of the input image (from stack) at pos (px,py) and copy it to the current cell at the same position
+                        unsignedShortType.set(ip.getPixel(px,py));
                     }
                 });*/
+                index = index+1;
             }
         };
-        RandomAccessibleInterval<UnsignedShortType> randomAccessible = factory.create(dim, t,loader);
-        BdvFunctions.show(randomAccessible,"Tiling");
+        RandomAccessibleInterval<UnsignedShortType> randomAccessible = factory.create(total_dim, t,loader);
+        BdvStackSource bss = BdvFunctions.show(randomAccessible,"Tiling");
+        bss.setDisplayRange(0, 255);
+
     }
 
     public static void main(final String... args) throws Exception {
@@ -89,7 +107,7 @@ public class Tiling implements Command {
         ImagePlus img = IJ.openImage("http://wsr.imagej.net/images/mri-stack.zip");
         img.show();
 
-        ij.command().run(Tiling.class, true);
+        //ij.command().run(Tiling.class, true);
     }
 
 
